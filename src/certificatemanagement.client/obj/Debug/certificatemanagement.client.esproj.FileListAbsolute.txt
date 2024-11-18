@@ -1,0 +1,2 @@
+C:\inoccard\Projects\CertificateManagement\certificatemanagement.client\obj\Debug\certificatemanagement.client.esproj.CoreCompileInputs.cache
+C:\inoccard\Projects\CertificateManagement\src\certificatemanagement.client\obj\Debug\certificatemanagement.client.esproj.CoreCompileInputs.cache

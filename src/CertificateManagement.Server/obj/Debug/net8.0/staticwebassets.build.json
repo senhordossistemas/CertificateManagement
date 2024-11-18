@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "qCxGwSdHKludlgM2aIW4lbr0QjoJzNwXMXYeJXhe8FE=",
+  "Source": "CertificateManagement.Server",
+  "BasePath": "_content/CertificateManagement.Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\inoccard\\Projects\\CertificateManagement\\src\\certificatemanagement.client\\certificatemanagement.client.esproj",
+      "Version": 2,
+      "Source": "certificatemanagement.client",
+      "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
