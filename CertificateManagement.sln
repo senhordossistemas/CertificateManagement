@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35208.52
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertificateManagement.Server", "CertificateManagement.Server\CertificateManagement.Server.csproj", "{20967AB0-A99B-40ED-BECF-58F26C7C98AD}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "certificatemanagement.client", "certificatemanagement.client\certificatemanagement.client.esproj", "{DDE45EC9-DC4D-4EB0-B549-420ED6D4891D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20967AB0-A99B-40ED-BECF-58F26C7C98AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20967AB0-A99B-40ED-BECF-58F26C7C98AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20967AB0-A99B-40ED-BECF-58F26C7C98AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20967AB0-A99B-40ED-BECF-58F26C7C98AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDE45EC9-DC4D-4EB0-B549-420ED6D4891D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDE45EC9-DC4D-4EB0-B549-420ED6D4891D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDE45EC9-DC4D-4EB0-B549-420ED6D4891D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{DDE45EC9-DC4D-4EB0-B549-420ED6D4891D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDE45EC9-DC4D-4EB0-B549-420ED6D4891D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDE45EC9-DC4D-4EB0-B549-420ED6D4891D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1AD99840-531C-4B04-850F-5C65F4FD25DB}
+	EndGlobalSection
+EndGlobal
