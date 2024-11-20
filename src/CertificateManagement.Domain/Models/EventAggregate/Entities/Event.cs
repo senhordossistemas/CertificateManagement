@@ -1,4 +1,3 @@
-using CertificateManagement.Domain.Models.CertificateAggregate.Entities;
 using CertificateManagement.Domain.Models.EventAggregate.Enums;
 
 namespace CertificateManagement.Domain.Models.EventAggregate.Entities;

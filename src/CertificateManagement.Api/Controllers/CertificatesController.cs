@@ -55,7 +55,7 @@ public class CertificatesController(
     }
 
     /// <summary>
-    /// Gera e envia um certificado para um usuário específico de um evento.
+    ///     Gera e envia um certificado para um usuário específico de um evento.
     /// </summary>
     /// <param name="user">Usuário para quem o certificado será gerado.</param>
     /// <param name="event">Evento ao qual o certificado está relacionado.</param>
@@ -81,7 +81,8 @@ public class CertificatesController(
 
             return isEmailSent
                 ? new CertificateResponse(true, "Certificado gerado e enviado para o e-mail cadastrado.", user.Id)
-                : new CertificateResponse(false, "Certificado gerado, mas não foi possível enviar por e-mail.", user.Id);
+                : new CertificateResponse(false, "Certificado gerado, mas não foi possível enviar por e-mail.",
+                    user.Id);
         }
         catch (Exception ex)
         {

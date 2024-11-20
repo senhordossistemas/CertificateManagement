@@ -8,7 +8,6 @@ namespace CertificateManagement.Api.Controllers;
 [Route("api/events")]
 public class EventsController(IEventService eventService) : ControllerBase
 {
-
     [HttpPost]
     public async Task<IActionResult> AddEvent([FromBody] Event eventEntity)
     {

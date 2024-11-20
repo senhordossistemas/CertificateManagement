@@ -1,4 +1,3 @@
-
 namespace CertificateManagement.Domain.Models.CertificateAggregate.Entities;
 
 public class Certificate(string filePath)

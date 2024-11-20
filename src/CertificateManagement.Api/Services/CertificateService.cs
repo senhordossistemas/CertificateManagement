@@ -29,7 +29,7 @@ public class CertificateService(
     public async Task CreateCertificate(string pdfPath, User user, Event @event)
     {
         var certificate = new Certificate(pdfPath);
-        
+
         await repository.AddAsync(certificate);
 
         @event.AddCertificate(certificate.Id);

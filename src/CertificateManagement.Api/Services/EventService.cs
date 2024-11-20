@@ -13,7 +13,13 @@ public class EventService(IGenericRepository repository) : IEventService
         await repository.CommitAsync();
     }
 
-    public async Task<List<Event>> Get() => await repository.Query<Event>().ToListAsync();
+    public async Task<List<Event>> Get()
+    {
+        return await repository.Query<Event>().ToListAsync();
+    }
 
-    public async Task<Event> Get(int id) => await repository.Query<Event>().FirstOrDefaultAsync(e => e.Id == id);
+    public async Task<Event> Get(int id)
+    {
+        return await repository.Query<Event>().FirstOrDefaultAsync(e => e.Id == id);
+    }
 }

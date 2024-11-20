@@ -1,4 +1,5 @@
 using CertificateManagement.Domain.Models.CertificateAggregate.Dtos;
+using QuestPDF;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
@@ -9,7 +10,7 @@ public static class PdfGenerator
 {
     static PdfGenerator()
     {
-        QuestPDF.Settings.License = LicenseType.Community; // se não utiliza linceça paga
+        Settings.License = LicenseType.Community; // se não utiliza linceça paga
     }
 
     public static string Generate(CertificateRequest request)
