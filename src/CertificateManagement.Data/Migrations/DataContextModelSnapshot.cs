@@ -31,14 +31,16 @@ namespace CertificateManagement.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("FilePath")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<DateTime>("GeneratedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Certificates");
+                    b.ToTable("Certificates", (string)null);
                 });
 
             modelBuilder.Entity("CertificateManagement.Domain.Models.EventAggregate.Entities.Event", b =>
@@ -53,7 +55,9 @@ namespace CertificateManagement.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
@@ -63,7 +67,7 @@ namespace CertificateManagement.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Events");
+                    b.ToTable("Events", (string)null);
                 });
 
             modelBuilder.Entity("CertificateManagement.Domain.Models.EventAggregate.Entities.EventCertificate", b =>
@@ -84,7 +88,7 @@ namespace CertificateManagement.Data.Migrations
 
                     b.HasIndex("EventId");
 
-                    b.ToTable("EventCertificates");
+                    b.ToTable("EventCertificates", (string)null);
                 });
 
             modelBuilder.Entity("CertificateManagement.Domain.Models.UserAggregate.Entities.User", b =>
@@ -96,17 +100,21 @@ namespace CertificateManagement.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<DateTime>("RegistrationDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("CertificateManagement.Domain.Models.UserAggregate.Entities.UserCertificate", b =>
@@ -127,7 +135,7 @@ namespace CertificateManagement.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserCertificates");
+                    b.ToTable("UserCertificates", (string)null);
                 });
 
             modelBuilder.Entity("CertificateManagement.Domain.Models.EventAggregate.Entities.EventCertificate", b =>
