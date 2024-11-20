@@ -15,28 +15,6 @@ public class DataContext(DbContextOptions<DataContext> options) : DbContext(opti
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Event>()
-            .HasMany(e => e.Certificates)
-            .WithOne()
-            .HasForeignKey(e => e.EventId)
-            .OnDelete(DeleteBehavior.Cascade);
-
-        modelBuilder.Entity<User>()
-            .HasMany(u => u.Certificates)
-            .WithOne()
-            .HasForeignKey(c => c.UserId)
-            .OnDelete(DeleteBehavior.Cascade);
-
-        modelBuilder.Entity<EventCertificate>()
-            .HasOne<Event>()
-            .WithMany()
-            .HasForeignKey(ec => ec.EventId)
-            .OnDelete(DeleteBehavior.Cascade);
-
-        modelBuilder.Entity<UserCertificate>()
-            .HasOne<User>()
-            .WithMany()
-            .HasForeignKey(uc => uc.UserId)
-            .OnDelete(DeleteBehavior.Cascade);
+        
     }
 }

@@ -1,31 +1,22 @@
 using CertificateManagement.Api.Utilities;
-using CertificateManagement.Data;
+using CertificateManagement.Domain.Contracts;
 using CertificateManagement.Domain.Models.CertificateAggregate;
+using CertificateManagement.Domain.Models.CertificateAggregate.Dtos;
 using CertificateManagement.Domain.Models.CertificateAggregate.Entities;
-using CertificateManagement.Domain.Models.Dtos;
+using CertificateManagement.Domain.Models.EventAggregate.Entities;
+using CertificateManagement.Domain.Models.UserAggregate.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace CertificateManagement.Api.Services;
 
-public class CertificateService(DataContext context) : ICertificateService
+public class CertificateService(
+    IGenericRepository repository)
+    : ICertificateService
 {
-    public async Task AddAsync(Certificate certificate)
-    {
-        await context.Certificates.AddAsync(certificate);
-        await context.SaveChangesAsync();
-    }
-
-    public async Task<List<Certificate>> Get() => await context.Certificates.ToListAsync();
-
-    public async Task<Certificate> Get(int id) => await context.Certificates.FirstOrDefaultAsync(e => e.Id == id);
-
-    public async Task Commit() => await context.SaveChangesAsync();
-    
-    public  string GenerateCertificateAsync(CertificateRequest request)
+    public string GenerateCertificateAsync(CertificateRequest request)
     {
         try
         {
-            // Generate PDF
             var pdfPath = PdfGenerator.Generate(request);
             return pdfPath;
         }
@@ -34,5 +25,17 @@ public class CertificateService(DataContext context) : ICertificateService
             Console.WriteLine(ex.Message);
             throw;
         }
+    }
+
+    public async Task CreateCertificate(string pdfPath, User user, Event @event)
+    {
+        var certificate = new Certificate(pdfPath);
+        
+        await repository.AddAsync(certificate);
+
+        @event.AddCertificate(certificate.Id);
+        user.AddCertificate(certificate.Id);
+
+        await repository.CommitAsync();
     }
 }

@@ -1,4 +1,5 @@
 using CertificateManagement.Domain.Models.UserAggregate;
+using CertificateManagement.Domain.Models.UserAggregate.Dtos;
 using CertificateManagement.Domain.Models.UserAggregate.Entities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,9 +10,9 @@ namespace CertificateManagement.Api.Controllers;
 public class UsersController(IUserService userService) : ControllerBase
 {
     [HttpPost]
-    public async Task<IActionResult> AddUser([FromBody] User user)
+    public async Task<IActionResult> AddUser([FromBody] UserDto user)
     {
-        await userService.AddAsync(user);
+        await userService.AddAsync(new User(user.Name, user.Email));
         return Ok(user);
     }
 

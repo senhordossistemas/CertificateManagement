@@ -1,4 +1,4 @@
-using CertificateManagement.Domain.Models.Dtos;
+using CertificateManagement.Domain.Models.CertificateAggregate.Dtos;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;

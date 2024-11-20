@@ -1,12 +1,11 @@
-using CertificateManagement.Domain.Models.CertificateAggregate.Entities;
-using CertificateManagement.Domain.Models.Dtos;
+using CertificateManagement.Domain.Models.CertificateAggregate.Dtos;
+using CertificateManagement.Domain.Models.EventAggregate.Entities;
+using CertificateManagement.Domain.Models.UserAggregate.Entities;
 
 namespace CertificateManagement.Domain.Models.CertificateAggregate;
 
 public interface ICertificateService
 {
-    Task AddAsync(Certificate certificate);
-    Task<List<Certificate>> Get();
-    Task<Certificate> Get(int id);
     string GenerateCertificateAsync(CertificateRequest request);
+    Task CreateCertificate(string pdfPath, User user, Event @event);
 }

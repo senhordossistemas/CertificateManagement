@@ -18,6 +18,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddScoped<IGenericRepository, GenericRepository>();
 builder.Services.AddScoped<ICertificateService, CertificateService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IEventService, EventService>();
@@ -26,6 +27,8 @@ builder.Services.AddScoped<IEmailSendingService, EmailSendingService>();
 builder.Services.AddCors();
 
 var app = builder.Build();
+
+app.ApplyMigrations();
 
 app.UseDefaultFiles();
 app.UseStaticFiles();

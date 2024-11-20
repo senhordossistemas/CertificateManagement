@@ -1,10 +1,7 @@
 using CertificateManagement.Api.Models;
-using CertificateManagement.Api.Services;
-using CertificateManagement.Api.Utilities;
 using CertificateManagement.Domain.Contracts;
 using CertificateManagement.Domain.Models.CertificateAggregate;
-using CertificateManagement.Domain.Models.CertificateAggregate.Entities;
-using CertificateManagement.Domain.Models.Dtos;
+using CertificateManagement.Domain.Models.CertificateAggregate.Dtos;
 using CertificateManagement.Domain.Models.EventAggregate;
 using CertificateManagement.Domain.Models.UserAggregate;
 using Microsoft.AspNetCore.Mvc;
@@ -33,12 +30,8 @@ public class CertificatesController(
             Hours = 8
         });
 
-        var certificate = new Certificate(pdfPath);
-
-        await certificateService.AddAsync(certificate);
-
-        @event.AddCertificate(certificate.Id);
-
+        await certificateService.CreateCertificate(pdfPath, user, @event);
+        
         var isEmailSent = await emailSendingService.SendEmailAsync(user.Email, pdfPath);
 
         if (isEmailSent)
@@ -69,11 +62,7 @@ public class CertificatesController(
                 Hours = 8
             });
 
-            var certificate = new Certificate(pdfPath);
-
-            await certificateService.AddAsync(certificate);
-
-            @event.AddCertificate(certificate.Id);
+            await certificateService.CreateCertificate(pdfPath, user, @event);
 
             var isMailSent = await emailSendingService.SendEmailAsync(user.Email, pdfPath);
 

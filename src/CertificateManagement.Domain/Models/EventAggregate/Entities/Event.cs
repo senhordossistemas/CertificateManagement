@@ -3,25 +3,17 @@ using CertificateManagement.Domain.Models.EventAggregate.Enums;
 
 namespace CertificateManagement.Domain.Models.EventAggregate.Entities;
 
-public class Event
+public class Event(string name, DateTime startDate, DateTime endDate, EventStatus status)
 {
     public int Id { get; private set; }
-    public string Name { get; private set; }
-    public DateTime StartDate { get; private set; }
-    public DateTime EndDate { get; private set; }
-    public EventStatus Status { get; private set; } = EventStatus.Pending; // Status inicial padrão
+    public string Name { get; private set; } = name;
+    public DateTime StartDate { get; private set; } = startDate;
+    public DateTime EndDate { get; private set; } = endDate;
+    public EventStatus Status { get; private set; } = status;
 
     private readonly List<EventCertificate> _certificates = [];
     public IReadOnlyCollection<EventCertificate> Certificates => _certificates.AsReadOnly();
-    
-    public Event(string name, DateTime startDate, DateTime endDate)
-    {
-        Name = name;
-        StartDate = startDate;
-        EndDate = endDate;
-        Status = EventStatus.Pending;
-    }
-    
+
     public void CompleteEvent()
     {
         if (Status == EventStatus.Disabled)
