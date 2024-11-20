@@ -1,4 +1,5 @@
 using CertificateManagement.Server.Models;
+using CertificateManagement.Server.Properties;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CertificateManagement.Server.Controllers;

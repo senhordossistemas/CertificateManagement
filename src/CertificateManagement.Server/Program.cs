@@ -1,4 +1,4 @@
-using CertificateManagement.Server.Models;
+using CertificateManagement.Server.Properties;
 using CertificateManagement.Server.Services;
 
 var builder = WebApplication.CreateBuilder(args);

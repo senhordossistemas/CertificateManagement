@@ -1,4 +1,6 @@
-namespace CertificateManagement.Server.Models;
+using CertificateManagement.Server.Models;
+
+namespace CertificateManagement.Server.Properties;
 
 public interface ICertificateService
 {
