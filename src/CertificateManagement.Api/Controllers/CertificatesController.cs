@@ -38,31 +38,46 @@ public class CertificatesController(
         var isEmailSent = await EmailSender.SendEmailAsync(user.Email, pdfPath);
 
         if (isEmailSent)
-        {
-            return Ok(new CertificateResponse
-            {
-                IsSuccess = true,
-                Message = "O certificado foi gerado e enviado para o seu email cadastrado."
-            });
-        }
+            return Ok(new CertificateResponse(true, "Certificado Gerado e enviado para o email cadastrado", user.Id));
 
-        return BadRequest(new CertificateResponse
-        {
-            IsSuccess = false,
-            Message = "Erro ao gerar ou enviar o certificado para o e-mail"
-        });
+        return BadRequest(new CertificateResponse(true, "Certificado não gerado", user.Id));
     }
 
-    [HttpPost("generate")]
-    public IActionResult GenerateCertificate([FromQuery] string email)
+    [HttpPost("generate/{eventId:int}")]
+    public async Task<IActionResult> GenerateCertificate(int eventId)
     {
-        var request = new CertificateRequest()
+        var @event = await eventService.Get(eventId);
+        
+        if (@event == null)
+            return NotFound("Event not found.");
+
+        var users = await userService.Get();
+
+        var result = new List<CertificateResponse>();
+        
+        foreach (var user in users)
         {
-            Email = email
-        };
+            var pdfPath = certificateService.GenerateCertificateAsync(new CertificateRequest
+            {
+                Name = user.Name,
+                EventTitle = @event.Name,
+                Organization = "Senhor dos Sistemas",
+                Hours = 8
+            });
 
-        var response = certificateService.GenerateCertificateAsync(request);
+            var certificate = new Certificate(pdfPath);
 
-        return Ok(response);
+            await certificateService.AddAsync(certificate);
+
+            @event.AddCertificate(certificate.Id);
+
+            var isMailSent = await EmailSender.SendEmailAsync(user.Email, pdfPath);
+
+            result.Add(isMailSent
+                ? new CertificateResponse(true, "Certificado Gerado e enviado para o email cadastrado", user.Id)
+                : new CertificateResponse(true, "Certificado não gerado", user.Id));
+        }
+
+        return Ok(result);
     }
 }

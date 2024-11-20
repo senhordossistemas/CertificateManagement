@@ -1,6 +1,4 @@
 using CertificateManagement.Data;
-using CertificateManagement.Domain.Models.EventAggregate;
-using CertificateManagement.Domain.Models.EventAggregate.Entities;
 using CertificateManagement.Domain.Models.UserAggregate;
 using CertificateManagement.Domain.Models.UserAggregate.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -9,7 +7,7 @@ namespace CertificateManagement.Api.Services;
 
 public class UserService(DataContext context) : IUserService
 {
-    public async Task AddEvent(User user)
+    public async Task AddAsync(User user)
     {
         await context.Users.AddAsync(user);
         await context.SaveChangesAsync();
