@@ -1,5 +1,6 @@
 using CertificateManagement.Domain.Contracts;
 using MailKit.Net.Smtp;
+using MailKit.Security;
 using MimeKit;
 
 namespace CertificateManagement.Api.Services;
