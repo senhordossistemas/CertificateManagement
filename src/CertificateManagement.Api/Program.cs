@@ -1,6 +1,7 @@
-using CertificateManagement.Api.Contracts;
 using CertificateManagement.Api.Services;
 using CertificateManagement.Data;
+using CertificateManagement.Domain.Contracts;
+using CertificateManagement.Domain.Models.CertificateAggregate;
 using CertificateManagement.Domain.Models.EventAggregate;
 using CertificateManagement.Domain.Models.UserAggregate;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +21,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 builder.Services.AddScoped<ICertificateService, CertificateService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IEventService, EventService>();
+builder.Services.AddScoped<IEmailSendingService, EmailSendingService>();
 
 builder.Services.AddCors();
 

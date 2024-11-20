@@ -31,12 +31,12 @@ public class DataContext(DbContextOptions<DataContext> options) : DbContext(opti
             .HasOne<Event>()
             .WithMany()
             .HasForeignKey(ec => ec.EventId)
-            .OnDelete(DeleteBehavior.Restrict);
+            .OnDelete(DeleteBehavior.Cascade);
 
         modelBuilder.Entity<UserCertificate>()
             .HasOne<User>()
             .WithMany()
             .HasForeignKey(uc => uc.UserId)
-            .OnDelete(DeleteBehavior.Restrict);
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

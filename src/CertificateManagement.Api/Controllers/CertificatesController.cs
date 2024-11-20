@@ -1,7 +1,10 @@
-using CertificateManagement.Api.Contracts;
 using CertificateManagement.Api.Models;
+using CertificateManagement.Api.Services;
 using CertificateManagement.Api.Utilities;
+using CertificateManagement.Domain.Contracts;
+using CertificateManagement.Domain.Models.CertificateAggregate;
 using CertificateManagement.Domain.Models.CertificateAggregate.Entities;
+using CertificateManagement.Domain.Models.Dtos;
 using CertificateManagement.Domain.Models.EventAggregate;
 using CertificateManagement.Domain.Models.UserAggregate;
 using Microsoft.AspNetCore.Mvc;
@@ -13,7 +16,8 @@ namespace CertificateManagement.Api.Controllers;
 public class CertificatesController(
     ICertificateService certificateService,
     IUserService userService,
-    IEventService eventService) : ControllerBase
+    IEventService eventService,
+    IEmailSendingService emailSendingService) : ControllerBase
 {
     [HttpPost("complete/{userId:int}/{eventId:int}")]
     public async Task<IActionResult> CompleteCourse(int userId, int eventId)
@@ -35,7 +39,7 @@ public class CertificatesController(
 
         @event.AddCertificate(certificate.Id);
 
-        var isEmailSent = await EmailSender.SendEmailAsync(user.Email, pdfPath);
+        var isEmailSent = await emailSendingService.SendEmailAsync(user.Email, pdfPath);
 
         if (isEmailSent)
             return Ok(new CertificateResponse(true, "Certificado Gerado e enviado para o email cadastrado", user.Id));
@@ -71,7 +75,7 @@ public class CertificatesController(
 
             @event.AddCertificate(certificate.Id);
 
-            var isMailSent = await EmailSender.SendEmailAsync(user.Email, pdfPath);
+            var isMailSent = await emailSendingService.SendEmailAsync(user.Email, pdfPath);
 
             result.Add(isMailSent
                 ? new CertificateResponse(true, "Certificado Gerado e enviado para o email cadastrado", user.Id)

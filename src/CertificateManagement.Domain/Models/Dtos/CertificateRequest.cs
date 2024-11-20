@@ -1,4 +1,4 @@
-namespace CertificateManagement.Api.Models;
+namespace CertificateManagement.Domain.Models.Dtos;
 
 public class CertificateRequest
 {

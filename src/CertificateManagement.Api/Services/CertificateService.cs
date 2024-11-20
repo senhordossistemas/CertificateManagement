@@ -1,8 +1,8 @@
-using CertificateManagement.Api.Contracts;
-using CertificateManagement.Api.Models;
 using CertificateManagement.Api.Utilities;
 using CertificateManagement.Data;
+using CertificateManagement.Domain.Models.CertificateAggregate;
 using CertificateManagement.Domain.Models.CertificateAggregate.Entities;
+using CertificateManagement.Domain.Models.Dtos;
 using Microsoft.EntityFrameworkCore;
 
 namespace CertificateManagement.Api.Services;

@@ -1,7 +1,7 @@
-using CertificateManagement.Api.Models;
 using CertificateManagement.Domain.Models.CertificateAggregate.Entities;
+using CertificateManagement.Domain.Models.Dtos;
 
-namespace CertificateManagement.Api.Contracts;
+namespace CertificateManagement.Domain.Models.CertificateAggregate;
 
 public interface ICertificateService
 {
