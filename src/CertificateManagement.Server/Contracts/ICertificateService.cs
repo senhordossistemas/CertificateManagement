@@ -1,6 +1,6 @@
 using CertificateManagement.Server.Models;
 
-namespace CertificateManagement.Server.Properties;
+namespace CertificateManagement.Server.Contracts;
 
 public interface ICertificateService
 {

@@ -1,4 +1,4 @@
-using CertificateManagement.Server.Properties;
+using CertificateManagement.Server.Contracts;
 using CertificateManagement.Server.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -34,6 +34,4 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapFallbackToFile("/index.html");
-
-app.Run();
+await app.RunAsync();

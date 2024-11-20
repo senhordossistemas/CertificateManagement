@@ -1,5 +1,5 @@
+using CertificateManagement.Server.Contracts;
 using CertificateManagement.Server.Models;
-using CertificateManagement.Server.Properties;
 using CertificateManagement.Server.Utilities;
 
 namespace CertificateManagement.Server.Services;
