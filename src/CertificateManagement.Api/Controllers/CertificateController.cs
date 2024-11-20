@@ -1,8 +1,8 @@
-using CertificateManagement.Server.Contracts;
-using CertificateManagement.Server.Models;
+using CertificateManagement.Api.Contracts;
+using CertificateManagement.Api.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CertificateManagement.Server.Controllers;
+namespace CertificateManagement.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

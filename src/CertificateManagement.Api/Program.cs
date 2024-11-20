@@ -1,5 +1,5 @@
-using CertificateManagement.Server.Contracts;
-using CertificateManagement.Server.Services;
+using CertificateManagement.Api.Contracts;
+using CertificateManagement.Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

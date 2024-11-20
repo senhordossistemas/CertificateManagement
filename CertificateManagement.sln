@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35208.52
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertificateManagement.Server", "src\CertificateManagement.Server\CertificateManagement.Server.csproj", "{48EDF078-65E6-4712-8652-34C2190675E5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertificateManagement.Api", "src\CertificateManagement.Api\CertificateManagement.Api.csproj", "{48EDF078-65E6-4712-8652-34C2190675E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

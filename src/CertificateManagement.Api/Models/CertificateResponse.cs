@@ -1,4 +1,4 @@
-namespace CertificateManagement.Server.Models;
+namespace CertificateManagement.Api.Models;
 
 public class CertificateResponse
 {

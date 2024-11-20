@@ -1,6 +1,6 @@
-using CertificateManagement.Server.Models;
+using CertificateManagement.Api.Models;
 
-namespace CertificateManagement.Server.Contracts;
+namespace CertificateManagement.Api.Contracts;
 
 public interface ICertificateService
 {

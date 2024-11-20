@@ -1,9 +1,9 @@
-using CertificateManagement.Server.Models;
+using CertificateManagement.Api.Models;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
 
-namespace CertificateManagement.Server.Utilities;
+namespace CertificateManagement.Api.Utilities;
 
 public static class PdfGenerator
 {

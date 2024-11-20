@@ -1,8 +1,8 @@
-using CertificateManagement.Server.Contracts;
-using CertificateManagement.Server.Models;
-using CertificateManagement.Server.Utilities;
+using CertificateManagement.Api.Contracts;
+using CertificateManagement.Api.Models;
+using CertificateManagement.Api.Utilities;
 
-namespace CertificateManagement.Server.Services;
+namespace CertificateManagement.Api.Services;
 
 public class CertificateService : ICertificateService
 {

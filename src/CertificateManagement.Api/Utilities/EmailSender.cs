@@ -1,7 +1,7 @@
 using MailKit.Net.Smtp;
 using MimeKit;
 
-namespace CertificateManagement.Server.Utilities;
+namespace CertificateManagement.Api.Utilities;
 
 public static class EmailSender
 {
