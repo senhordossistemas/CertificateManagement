@@ -63,11 +63,8 @@ public static class PdfGenerator
     {
         var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "img", "OIG.jpeg");
         if (!File.Exists(imagePath))
-        {
             throw new FileNotFoundException($"Image not found at {imagePath}");
-        }
 
-        // Logo e Título
         column.Item().Height(100).AlignCenter().Row(row =>
         {
             row.RelativeItem().Height(90).Width(90).Image(imagePath, ImageScaling.FitWidth);
@@ -87,7 +84,7 @@ public static class PdfGenerator
             txt.Span(", promovido por ").FontSize(16);
             txt.Span(request.Organization).Bold().FontSize(16);
             txt.Span(", realizado no período de ").FontSize(16);
-            txt.Span(request.EventDate.ToString("dd/MM/yyyy")).Bold().FontSize(16);
+            txt.Span(request.Date.ToString("dd/MM/yyyy")).Bold().FontSize(16);
             txt.Span(", com carga horária de ").FontSize(16);
             txt.Span($"{request.Hours} horas").Bold().FontSize(16);
             txt.Span(".");

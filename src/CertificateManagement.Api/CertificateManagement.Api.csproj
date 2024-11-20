@@ -15,4 +15,25 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="img\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="img\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="img\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="img\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CertificateManagement.Data\CertificateManagement.Data.csproj" />
+    <ProjectReference Include="..\CertificateManagement.Domain\CertificateManagement.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
