@@ -6,19 +6,19 @@ Um sistema de gerenciamento de certificados que permite gerar certificados autom
 
 ## **Sumário**
 
-- [Visão Geral] (#visão-geral)
-- [Recursos] (#recursos)
-- [Instalação] (#instalação)
-- [Configuração] (#configuração)
-  - [Banco de Dados] (#configuração-do-banco-de-dados)
-  - [Envio de E-mails] (#configuração-de-envio-de-e-mails)
+- [Visão Geral](#visão-geral)
+- [Recursos](#recursos)
+- [Instalação](#instalação)
+- [Configuração](#configuração)
+  - [Banco de Dados](#configuração-do-banco-de-dados)
+  - [Envio de E-mails](#configuração-de-envio-de-e-mails)
   - [Geração da Senha de Aplicativo no Gmail](#geração-da-senha-de-aplicativo-no-gmail)
-- [Uso] (#uso)
-  - [Iniciar a Aplicação] (#iniciar-a-aplicação)
-  - [Principais Endpoints] (#principais-endpoints)
-- [Estrutura do Banco de Dados] (#estrutura-do-banco-de-dados)
+- [Uso](#uso)
+  - [Iniciar a Aplicação](#iniciar-a-aplicação)
+  - [Principais Endpoints](#principais-endpoints)
+- [Estrutura do Banco de Dados](#estrutura-do-banco-de-dados)
 - [Contribuição](#contribuição)
-- [Licença] (#licença)
+- [Licença](#licença)
 
 ---
 
