@@ -18,7 +18,6 @@ Um sistema de gerenciamento de certificados que permite gerar certificados autom
   - [Principais Endpoints](#principais-endpoints)
 - [Estrutura do Banco de Dados](#estrutura-do-banco-de-dados)
 - [Contribuição](#contribuição)
-- [Licença](#licença)
 
 ---
 
