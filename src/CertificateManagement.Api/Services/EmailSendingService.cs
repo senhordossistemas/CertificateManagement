@@ -1,12 +1,21 @@
+using CertificateManagement.Api.Configurations;
 using CertificateManagement.Domain.Contracts;
 using MailKit.Net.Smtp;
 using MailKit.Security;
+using Microsoft.Extensions.Options;
 using MimeKit;
 
 namespace CertificateManagement.Api.Services;
 
 public class EmailSendingService : IEmailSendingService
 {
+    private static EmailSettings _emailSettings;
+
+    public EmailSendingService(IOptions<EmailSettings> emailSettings)
+    {
+        _emailSettings = emailSettings.Value;
+    }
+
     public async Task<bool> SendEmailAsync(string recipientEmail, string pdfPath)
     {
         try
@@ -31,8 +40,8 @@ public class EmailSendingService : IEmailSendingService
     private static MimeMessage SetBasicInfo(string recipientEmail, out TextPart body)
     {
         var message = new MimeMessage();
-        message.From.Add(new MailboxAddress("Certificate Management", "10enraska@gmail.com"));
-        message.To.Add(new MailboxAddress("To Name", recipientEmail));
+        message.From.Add(new MailboxAddress(_emailSettings.SenderName, _emailSettings.SenderEmail));
+        message.To.Add(new MailboxAddress("Recipient", recipientEmail));
         message.Subject = "Your Certificate";
 
         body = new TextPart("plain")
@@ -64,8 +73,8 @@ public class EmailSendingService : IEmailSendingService
     private static async Task SendMessage(MimeMessage message)
     {
         using var client = new SmtpClient();
-        await client.ConnectAsync("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
-        await client.AuthenticateAsync("exemple-mail@gmail.com", "access-key");
+        await client.ConnectAsync(_emailSettings.SmtpServer, _emailSettings.Port, SecureSocketOptions.StartTls);
+        await client.AuthenticateAsync(_emailSettings.SenderEmail, _emailSettings.Password);
         await client.SendAsync(message);
         await client.DisconnectAsync(true);
     }
