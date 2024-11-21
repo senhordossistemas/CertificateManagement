@@ -10,9 +10,14 @@ Um sistema de gerenciamento de certificados que permite gerar certificados autom
 - [Recursos] (#recursos)
 - [Instalação] (#instalação)
 - [Configuração] (#configuração)
+  - [Banco de Dados] (#configuração-do-banco-de-dados)
+  - [Envio de E-mails] (#configuração-de-envio-de-e-mails)
+  - [Geração da Senha de Aplicativo no Gmail](#geração-da-senha-de-aplicativo-no-gmail)
 - [Uso] (#uso)
+  - [Iniciar a Aplicação] (#iniciar-a-aplicação)
+  - [Principais Endpoints] (#principais-endpoints)
 - [Estrutura do Banco de Dados] (#estrutura-do-banco-de-dados)
-- [Contribuição] (#contribuição)
+- [Contribuição](#contribuição)
 - [Licença] (#licença)
 
 ---
@@ -64,7 +69,7 @@ dotnet restore
 
 ### **Aplicar Migrações do Banco de Dados**
 
-- Ao executar a aplicação, as migrations serão aplicadas automaticamente
+- Ao executar a aplicação, as migrações serão aplicadas automaticamente.
 
 ---
 
@@ -86,12 +91,27 @@ Adicione as configurações de e-mail no arquivo `appsettings.json`:
 
 ```json
 "EmailSettings": {
+  "SenderName": "Certificate Management",
+  "SenderEmail": "seu-email@gmail.com",
   "SmtpServer": "smtp.gmail.com",
   "Port": 587,
-  "SenderEmail": "seu-email@gmail.com",
-  "SenderPassword": "sua-senha-de-aplicativo"
+  "Password": "sua-senha-de-aplicativo"
 }
 ```
+
+### **Geração da Senha de Aplicativo no Gmail**
+
+1. **Ative a Verificação em Duas Etapas**:
+   - Acesse [Minha Conta Google - Segurança](https://myaccount.google.com/security).
+   - Na seção **"Como fazer login no Google"**, clique em **"Verificação em duas etapas"**.
+   - Siga as instruções para ativar a verificação em duas etapas (caso ainda não esteja ativada).
+
+2. **Gere a Senha de Aplicativo**:
+   - Volte para [Minha Conta Google - Segurança](https://myaccount.google.com/security).
+   - Na seção **"Fazer login no Google"**, clique em **"Senhas de app"**.
+   - Confirme sua identidade inserindo sua senha.
+   - Escolha **Outro (nome personalizado)** e insira um nome, como **CertificateManagement**.
+   - Copie a senha gerada (16 caracteres) e use-a na configuração acima, no campo `Password`.
 
 ---
 
@@ -132,23 +152,27 @@ http://localhost:5000/swagger
 
 #### **Certificados**
 
-- **GET** `/api/certificates/complete/{userId}/{eventId}` - Lista todos os eventos.
-- **POST** `/api/certificates/generate/{eventId}` - Adiciona um novo evento.
+- **POST** `/api/certificates/complete/{userId}/{eventId}` - Gera e envia um certificado para um participante.
+- **POST** `/api/certificates/generate/{eventId}` - Gera e envia certificados para todos os participantes de um evento.
 
-### Estrutura do Banco de Dados
+---
 
-#### Principais Entidades
+## **Estrutura do Banco de Dados**
 
-- Users: Representa os participantes.
-- Events: Representa os eventos ou cursos.
-- Certificates: Representa os certificados gerados.
+### **Principais Entidades**
 
-#### Relacionamentos
+- **Users**: Representa os participantes.
+- **Events**: Representa os eventos ou cursos.
+- **Certificates**: Representa os certificados gerados.
 
-- User possui muitos Certificate.
-- Event possui muitos Certificate.
+### **Relacionamentos**
 
-### Contribuição
+- `User` possui muitos `Certificate`.
+- `Event` possui muitos `Certificate`.
+
+---
+
+## **Contribuição**
 
 Contribuições são bem-vindas! Siga os passos abaixo:
 
@@ -171,5 +195,4 @@ git commit -m "Adiciona nova funcionalidade"
 git push origin minha-nova-funcionalidade
 ```
 
-5. Abra um Pull Request
-
+5. Abra um Pull Request.
