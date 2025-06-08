@@ -1,15 +1,14 @@
 {
   "ConnectionStrings": {
-    "DefaultConnection": "server=localhost,1433;database=CertificateManagement;user id=sa;password=StrongPassword@123;Encrypt=False;"
+    "DefaultConnection": "Server=(your_server);Database=CertificateManagement;User Id=your_user;Password=your_password;Encrypt=False;"
   },
   "EmailSettings": {
     "SenderName": "Certificate Management",
-    "SenderEmail": "mail-example@gmail.com",
+    "SenderEmail": "you@example.com",
     "SmtpServer": "smtp.gmail.com",
     "Port": 587,
-    "Password": "yourkey"
+    "Password": "your_email_password"
   },
-
   "Logging": {
     "LogLevel": {
       "Default": "Information",
