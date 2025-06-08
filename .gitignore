@@ -406,3 +406,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+# Ignore configuration files containing secrets
+src/CertificateManagement.Api/appsettings.json
+

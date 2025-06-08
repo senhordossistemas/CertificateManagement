@@ -76,7 +76,7 @@ dotnet restore
 
 ### **Configuração do Banco de Dados**
 
-No arquivo `appsettings.json`, configure a string de conexão:
+Copie o arquivo `appsettings.json.example` localizado em `src/CertificateManagement.Api` para `appsettings.json` e configure sua string de conexão:
 
 ```json
 "ConnectionStrings": {
@@ -86,7 +86,7 @@ No arquivo `appsettings.json`, configure a string de conexão:
 
 ### **Configuração de Envio de E-mails**
 
-Adicione as configurações de e-mail no arquivo `appsettings.json`:
+Após copiar o `appsettings.json.example`, configure as informações de e-mail no arquivo `appsettings.json`:
 
 ```json
 "EmailSettings": {
